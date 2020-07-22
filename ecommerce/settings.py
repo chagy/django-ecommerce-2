@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -127,4 +128,4 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/media')
+MEDIA_ROOT = os.path.join(BASE_DIR,'static','media')
