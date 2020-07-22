@@ -18,7 +18,20 @@ from django.urls import path
 
 from store import views
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index),
+    path('',views.index,name="home"),
+    # path('product/',views.product),
+    path('category/<slug:category_slug>',views.index,name="product_by_category"),
+    path('category/<slug:category_slug>/<slug:product_slug>/',views.productPage,name="productDetail"),
 ]
+
+if settings.DEBUG :
+    # media/product/ 
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    # /static/
+    urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    # /static/media/product/iphone.jpg
